@@ -11,15 +11,12 @@ function VantaBackground() {
       mouseControls: true,
       touchControls: true,
       gyroControls: false,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      highlightColor: 0xf2bd00,
-      midtoneColor: 0xff1c00,
-      lowlightColor: 0x2c00ff,
-      baseColor: 0xffdbdb,
-      blurFactor: 0.90,
-      speed: 1.80,
-      zoom: 1.2
+  highlightColor: 0x8d5a27,
+  midtoneColor: 0xcc574d,
+  lowlightColor: 0xb02020,
+  baseColor: 0x292121,
+  blurFactor: 0.90,
+  zoom: 0.90
     })
   }, [])
     

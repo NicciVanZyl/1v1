@@ -1,5 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+.jersey-15-regular {
+  font-family: "Jersey 15", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lato-thin {
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.lato-light {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.lato-regular {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lato-bold {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.lato-black {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.lato-thin-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.lato-light-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.lato-regular-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.lato-bold-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.lato-black-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+*{
+   font-family: "Lato", sans-serif;
+}
+
 .App {
   text-align: center;
+
 }
 
 .App-logo {
@@ -39,12 +112,15 @@
 
 .link{
   text-decoration: none;
-  color: #282c34;
+  color: #fff2e6;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .footerBackground{
   height: 2.5em;
-  background-color: #282c34;
+background: #636363;
+background: linear-gradient(0deg, rgb(24, 24, 24) 30%, rgba(15, 15, 15, 0) 100%);
   /* margin-top: 1em; */
   margin-bottom: 0;
   padding: 0;
@@ -79,17 +155,48 @@ backdrop-filter: blur(9.2px);
 -webkit-backdrop-filter: blur(9.2px);
 border: 1px solid rgba(255, 198, 198, 0.64);
 padding: 20px;
+height: 100%;
 }
 
 .welcomeText{
   text-align: center;
-  font-size: 16px;
+  font-size: 18px;
+  
 }
 
-h2{
+.welcomeTitle{
+  font-size: 45px;
   text-align: center;
+    font-family: "Jersey 15", sans-serif;
 }
 
-.welcomeTextContainer{
-  margin: 40px;
+.homeImage{
+  width: 100%;
+  
+}
+
+.statsText{
+  font-size: 18px;
+  h5{
+    font-size: 22px;
+  }
+}
+
+.navBackground{
+background: #636363;
+background: linear-gradient(180deg, rgb(24, 24, 24) 30%, rgba(15, 15, 15, 0) 100%);
+
+}
+Navbar.Toggle:active{
+  border-color: #fff2e6;
+}
+
+.Logo{
+    font-family: "Jersey 15", sans-serif;
+    font-size: 30px;
+}
+
+.footerText{
+  color: #fff;
+  padding-left: 5%;
 }
