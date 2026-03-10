@@ -4,14 +4,19 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Stack from 'react-bootstrap/Stack';
 import placeholderImage from '../PlaceHolderImage.png';
+import VantaBackground from "../VantaBackground";
 
 function home() {
     return (
-        <Container fluid className="pageBackground">
+        <main>
+        <VantaBackground></VantaBackground>
+        <Container fluid className="pageBackground" id="pagebg" >
+        {/* <VantaBackground > */}
+
             <Row>
                 <Col className="m-5 containerBackground">
                 <Stack gap={5}>
-                    <Stack direction="vertical" gap={1}>
+                    <Stack direction="vertical" gap={1} className="welcomeTextContainer containerBackground">
                         <div>
                             <h2>Welcome to 1V1</h2>
                         </div>
@@ -47,7 +52,9 @@ function home() {
                     </Stack>
                 </Col>
             </Row>
+        {/* </VantaBackground> */}
         </Container>
+        </main>
     );
 }
 

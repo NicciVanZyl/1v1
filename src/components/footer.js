@@ -5,8 +5,9 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 function pageFooter() {
     return(
-        <footer>
-            <p>Eunice van Zyl</p>
+
+        <footer className='footerBackground'>
+            <p className='footerText'>Eunice van Zyl</p>
         </footer>
 
     );
