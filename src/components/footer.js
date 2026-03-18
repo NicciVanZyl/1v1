@@ -7,7 +7,7 @@ function pageFooter() {
     return(
 
         <footer className='footerBackground'>
-            <p className='footerText'>Eunice van Zyl</p>
+            <p className='footerText'>@ Eunice van Zyl Open Window 2026</p>
         </footer>
 
     );
