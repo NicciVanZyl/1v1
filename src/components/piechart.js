@@ -34,7 +34,7 @@ const data = {
 const PieChart = () => {
  return (
    <div>
-     <h2>Experience rewarded after battle</h2>
+     <h2 className="chartHeading">Experience rewarded after battle</h2>
      <Pie data={data} />
    </div>
  );

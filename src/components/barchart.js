@@ -36,9 +36,9 @@ const data = {
 const BarChart = () => {
     return (
         <div>
-            <h2>Experience required for level up</h2>
+            <h2 className="chartHeading">Experience required for level up</h2>
             <Bar data={data} />
-            <p>This data represents the total amount of experience points the pokemon will need to level up dot the next level</p>
+            <p className="chartDesc">This data represents the total amount of experience points the pokemon will need to level up dot the next level</p>
         </div>
     );
 };

@@ -22,16 +22,20 @@ function comparison() {
                 <Row>
                     <Col className="m-5 containerBackground">
                         <Row>
-                            <Col lg={6} md={12} className="">
+                            <Col lg={6} md={12} >
 
                                 <Stack gap={5} className="mx-auto">
-                                    <Autocomplete className="mx-auto"
-                                        disablePortal
-                                        options={["option 1", "option 2", "option 3"]}
-                                        sx={{ width: 300 }}
-                                        renderInput={(params) => <TextField {...params} label="Pokemon" />}
-                                    />
-                                    <Card style={{ width: '25rem' }} className="mx-auto">
+                                    <Stack direction="horizontal" className="mx-auto" gap={3}>
+                                        <Autocomplete className="selectPokemon"
+                                            disablePortal
+                                            options={["option 1", "option 2", "option 3"]}
+                                            sx={{ width: 300 }}
+                                            renderInput={(params) => <TextField {...params} label="Pokemon" />}
+                                        />
+                                        <button className="randomBtn">Random</button>
+                                    </Stack>
+
+                                    <Card style={{ width: '25rem' }} className="mx-auto pokemonCard">
                                         <Card.Img variant="top" src={placeholderImage} />
                                         <Card.Body>
                                             <Card.Title>PokemonName</Card.Title>
@@ -40,20 +44,23 @@ function comparison() {
                                             </Card.Text>
                                         </Card.Body>
                                     </Card>
-                                    <RadarChart/>
+                                    <RadarChart />
                                 </Stack>
 
                             </Col>
-                                                        <Col lg={6} md={12} className="">
+                            <Col lg={6} md={12} className="">
 
                                 <Stack gap={5} className="mx-auto">
-                                    <Autocomplete className="mx-auto"
-                                        disablePortal
-                                        options={["option 1", "option 2", "option 3"]}
-                                        sx={{ width: 300 }}
-                                        renderInput={(params) => <TextField {...params} label="Pokemon" />}
-                                    />
-                                    <Card style={{ width: '25rem' }} className="mx-auto">
+                                    <Stack direction="horizontal" className="mx-auto" gap={3}>
+                                        <Autocomplete className="selectPokemon"
+                                            disablePortal
+                                            options={["option 1", "option 2", "option 3"]}
+                                            sx={{ width: 300 }}
+                                            renderInput={(params) => <TextField {...params} label="Pokemon" />}
+                                        />
+                                        <button className="randomBtn">Random</button>
+                                    </Stack>
+                                    <Card style={{ width: '25rem' }} className="mx-auto pokemonCard">
                                         <Card.Img variant="top" src={placeholderImage} />
                                         <Card.Body>
                                             <Card.Title>PokemonName</Card.Title>
@@ -62,7 +69,7 @@ function comparison() {
                                             </Card.Text>
                                         </Card.Body>
                                     </Card>
-                                    <RadarChart/>
+                                    <RadarChart />
                                 </Stack>
 
                             </Col>
