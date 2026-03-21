@@ -10,16 +10,6 @@ import { useState, useEffect } from "react";
 
 
 function Home() {
-    //     class pokiDetails {
-    //         constructor(name, baseExp, species, speciesURL, sprite, stats) {
-    //             this.name = name;
-    //             this.baseExp = baseExp;
-    //             this.species = species;
-    //             this.speciesURL = speciesURL;
-    //             this.sprite = sprite;
-    //             this.stats = stats;
-    //         }
-    //     }
 
     const [pokiList, setList] = useState([]);
     const [activePoki, setActivePoke] = useState()

@@ -22,8 +22,9 @@ function Comparison() {
     const [poke1LevelData, setPoke1LevelData] = useState(null);
     const [poke2, setPoke2] = useState(null);
     const [poke2LevelData, setPoke2LevelData] = useState(null);
-    
-   
+    const [panelGenerated, setPanelGenerated] = useState(null);
+
+
 
     const GeneratePanel = (pokeData) => {
         if (!pokeData) {
@@ -41,14 +42,17 @@ function Comparison() {
                         </Card.Text>
                     </Card.Body>
                 </Card>
-                <RadarChart stats={pokeData.stats} />
+                <div className="radarGraph">
+                    <RadarChart stats={pokeData.stats} />
+                </div>
+
             </>
         )
     }
 
     return (
-        <main>
-            <VantaBackground></VantaBackground>
+        <main >
+            <VantaBackground fluid key={[poke1, poke2]}></VantaBackground>
             <Container fluid className="pageBackground pt-4" id="pagebg" >
 
                 <Row>
@@ -58,11 +62,9 @@ function Comparison() {
 
                                 <Stack gap={5} className="mx-auto">
                                     <Stack direction="horizontal" className="mx-auto" gap={3}>
-                                       <Selector onSelectPokemon={setPoke1} levelSpeedData={setPoke1LevelData}/>
-                                       
+                                        <Selector onSelectPokemon={setPoke1} levelSpeedData={setPoke1LevelData} />
+
                                     </Stack>
-                                    {console.log(poke1)}
-                                    {console.log(poke1LevelData)}
                                     {GeneratePanel(poke1)};
 
                                 </Stack>
@@ -72,30 +74,21 @@ function Comparison() {
 
                                 <Stack gap={5} className="mx-auto">
                                     <Stack direction="horizontal" className="mx-auto" gap={3}>
-                                        <Autocomplete className="selectPokemon"
-                                            options={["option1"]}
-                                            disablePortal
-                                            sx={{ width: 300 }}
-                                            renderInput={(params) => <TextField {...params} label="Pokemon" />}
-                                        />
-                                        <button className="randomBtn">Random</button>
+                                        <Selector onSelectPokemon={setPoke2} levelSpeedData={setPoke2LevelData} />
+
                                     </Stack>
-                                    <Card style={{ width: '25rem' }} className="mx-auto pokemonCard">
-                                        <Card.Img variant="top" src={placeholderImage} />
-                                        <Card.Body>
-                                            <Card.Title>PokemonName</Card.Title>
-                                            <Card.Text>
-                                                Type: Type
-                                            </Card.Text>
-                                        </Card.Body>
-                                    </Card>
-                                    <RadarChart />
+                                    {GeneratePanel(poke2)};
+
                                 </Stack>
 
                             </Col>
                         </Row>
-                        <BarChart></BarChart>
-                        <PieChart></PieChart>
+                        <div className="barChartContainer">
+                            <BarChart poke1LevelData={poke1LevelData} poke2LevelData={poke2LevelData}></BarChart>
+                        </div>
+                        <div className="pieChartContainer">
+                            <PieChart poke1={poke1} poke2={poke2}></PieChart>
+                        </div>
                     </Col>
                 </Row>
 

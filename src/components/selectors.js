@@ -147,9 +147,7 @@ function Selector({ onSelectPokemon, levelSpeedData }) {
 
     useEffect(() => {
         if (levelSpeedList[0] == null) return;
-        console.log(levelSpeedList[0].url);
         getLevelDetails(levelSpeedList[0].url, levelSpeedList[1].url, levelSpeedList[2].url, levelSpeedList[3].url, levelSpeedList[4].url, levelSpeedList[5].url);
-        console.log(levelSpeedList);
         
     }, [levelSpeedList])
 

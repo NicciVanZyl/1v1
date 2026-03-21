@@ -1,17 +1,16 @@
-import react from "react";
+import react, { useEffect, useState } from "react";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Stack from 'react-bootstrap/Stack';
-import placeholderImage from '../PlaceHolderImage.png';
 import VantaBackground from "../VantaBackground";
 import PageFooter from '../components/footer';
-import Autocomplete from '@mui/material/Autocomplete'
-import TextField from "@mui/material/TextField";
-import Card from 'react-bootstrap/Card';
 import LineChart from "../components/linechart";
 
-function timeline() {
+
+function Timeline() {
+
+
+
     return (
         <main>
             <VantaBackground></VantaBackground>
@@ -29,4 +28,4 @@ function timeline() {
     );
 }
 
-export default timeline;
+export default Timeline;

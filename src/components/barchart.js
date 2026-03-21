@@ -1,43 +1,99 @@
 import {
     Chart as ChartJS,
-  Colors,
-  BarController,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Legend
+    Colors,
+    BarController,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Legend,
+    Ticks,
+    plugins
 } from "chart.js";
+import { color } from "motion";
+import { useEffect, useState } from "react";
 
 import { Bar } from "react-chartjs-2";
+import { label } from "three/src/nodes/core/ContextNode.js";
+import { min, step } from "three/src/nodes/math/MathNode.js";
 
 ChartJS.register(
-  Colors,
-  BarController,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Legend
+    Colors,
+    BarController,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Legend
 );
+const BarChart = ({ poke1LevelData, poke2LevelData }) => {
 
-const data = {
-    labels: ["1", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"],
-    datasets: [
-        {
-            label: "Pokemon 1",
-            data: [20, 100, 500, 1000, 10000, 100000],
+    const [data1, setData1] = useState([]);
+    const [data2, setData2] = useState([]);
+    const [labels, setLabels] = useState([]);
+
+    useEffect(() => {
+        if (poke1LevelData == null) return;
+        if (poke1LevelData.levels == null) return;
+        if (poke2LevelData == null) return;
+        if (poke2LevelData.levels == null) return;
+        const labels = poke1LevelData.levels.map((l) => parseInt(l.level));
+        const data1 = poke1LevelData.levels.map((l) => l.experience);
+        const data2 = poke2LevelData.levels.map((l) => l.experience);
+
+
+        setData1(data1);
+        setData2(data2);
+        setLabels(labels);
+    }, [poke1LevelData, poke2LevelData])
+
+    const data = {
+        labels: labels,
+        datasets: [
+            {
+                label: "Pokemon 1",
+                data: data1,
+                minBarLength: 5,
+                barWidth: 3,
+            },
+            {
+                label: "Pokemon 2",
+                data: data2,
+                minBarLength: 5,
+                barWidth: 3,
+            }
+        ]
+    };
+    const options = {
+        responsive: true, // Chart resizes automatically
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    color: "#fff",
+                }
+            },
+            x: {
+                ticks: {
+                    min: 0,
+                    max: 25,
+                    maxTicksLimit: 34,
+                    color: "#fff",
+                }
+            }
+
         },
-        {
-            label: "Pokemon 2",
-            data: [20, 101, 520, 1300, 10400, 104500],
-        }
-    ]
-};
+        plugins: {
+            legend: {
+                labels: {
+                    color: "#fff"
+                }
+            },
+        },
+    }
 
-const BarChart = () => {
     return (
         <div>
             <h2 className="chartHeading">Experience required for level up</h2>
-            <Bar data={data} />
+            <Bar data={data} options={options} />
             <p className="chartDesc">This data represents the total amount of experience points the pokemon will need to level up dot the next level</p>
         </div>
     );
