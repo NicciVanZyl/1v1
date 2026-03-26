@@ -44,12 +44,12 @@ const RadarChart = ({ stats }) => {
         label: "Base Stats",
         data: [stats[0].hp, stats[1].atk, stats[2].def, stats[5].speed, stats[3].s_atk, stats[4].s_def],
         fill: true,
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgb(255, 99, 132)',
-        pointBackgroundColor: 'rgb(255, 99, 132)',
+        backgroundColor: 'rgba(167, 102, 247, 0.25)',
+        borderColor: 'rgb(135, 60, 226)',
+        pointBackgroundColor: 'rgb(133, 56, 228)',
         pointBorderColor: '#fff',
         pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: 'rgb(255, 99, 132)',
+        pointHoverBorderColor: 'rgb(167, 102, 247)',
 
       }
     ]
@@ -61,34 +61,34 @@ const RadarChart = ({ stats }) => {
       r: {
         beginAtZero: true,
         pointLabels: {
-          color: 'white',
+          color: 'rgb(14, 6, 24)',
           font: {
-            size: 16,
+            size: 18,
           }
         },
         grid:{
-          color: "#fff"
+          color: "rgb(231, 212, 255)"
         },
         angleLines: {
-          color: "white"
+          color: "rgb(231, 212, 255)"
         },
         ticks:{
           color: "white",
-          backdropColor: "#000", 
+          backdropColor: "rgba(134, 82, 182, 0.6)", 
           padding: 10,
         }
       },
     },
     plugins: {
       tooltip: { enables: true,  },
-      legend: { position: "top", labels: { color: "#fff" }  },
+      legend: { position: "top", labels: { color: "rgb(14, 6, 24)"} },
     },
   };
   return (
-    <div>
+    <div className="chartBG">
       <h2 className="chartHeading">Stats Overview</h2>
       <Radar data={data} options={options} />
-      <p className="chartDesc">
+      <p className="chartDesc"> 
         Each of these number values represents the pokemon's starting stat values and will increase with level.
       </p>
     </div>

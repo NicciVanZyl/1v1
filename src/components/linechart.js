@@ -186,7 +186,6 @@ const LineChart = () => {
 
   return (
     <div>
-      <h2 className="chartHeading">Stat Growth</h2>
       <Line data={data} options={options} />
     </div>
   );

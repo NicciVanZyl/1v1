@@ -1,12 +1,14 @@
-import react, { useEffect } from 'react';
+import react, { useEffect, useRef } from 'react';
 import * as THREE from "three";
 import FOG from "vanta/dist/vanta.fog.min";
 
 function VantaBackground() {
+  const vantaRef = useRef(null); //does not rerender page when value changes
 
   useEffect(() => {
+
     const vantaEffect = FOG({
-      el: "#backgroundEffect",
+      el: vantaRef.current,
       THREE,
       mouseControls: true,
       touchControls: true,
@@ -27,7 +29,7 @@ function VantaBackground() {
 
 
   return (
-    <div className='background' id='backgroundEffect'></div>
+    <div className='background' ref={vantaRef}></div>
   )
 }
 

@@ -3,11 +3,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Stack from 'react-bootstrap/Stack';
-import placeholderImage from '../PlaceHolderImage.png';
 import VantaBackground from "../VantaBackground";
 import PageFooter from '../components/footer';
-import Autocomplete from '@mui/material/Autocomplete'
-import TextField from "@mui/material/TextField";
 import Card from 'react-bootstrap/Card';
 import RadarChart from "../components/radarChart";
 import PieChart from "../components/piechart";
@@ -33,9 +30,9 @@ function Comparison() {
 
         return (
             <>
-                <Card style={{ width: '25rem' }} className="mx-auto pokemonCard">
+                <Card style={{ width: '25rem'}} className="mx-auto pokemonCard">
                     <Card.Img variant="top" src={pokeData.sprite} />
-                    <Card.Body>
+                    <Card.Body className="pokemonCard">
                         <Card.Title>{pokeData.name}</Card.Title>
                         <Card.Text>
                             Type: {pokeData.types}
@@ -83,12 +80,14 @@ function Comparison() {
 
                             </Col>
                         </Row>
+                        <Stack gap={5}>
                         <div className="barChartContainer">
                             <BarChart poke1LevelData={poke1LevelData} poke2LevelData={poke2LevelData}></BarChart>
                         </div>
-                        <div className="pieChartContainer">
+                        <div className="">
                             <PieChart poke1={poke1} poke2={poke2}></PieChart>
                         </div>
+                        </Stack>
                     </Col>
                 </Row>
 

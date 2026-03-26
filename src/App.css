@@ -129,7 +129,7 @@
 }
 
 .background {
-  position: absolute;
+  position: fixed;
   z-index: -1;
   inset: 0;
   width: 100%;
@@ -189,8 +189,25 @@ main {
 .statsText {
   font-size: 18px;
 
+
   h5 {
     font-size: 22px;
+    font-weight: 600;
+  }
+}
+
+.pokemonInfo {
+  text-transform: capitalize;
+}
+
+.pokemonStatDesc{
+  p{
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  h6{
+    font-size: 18px;
+    font-weight: 600;
   }
 }
 
@@ -214,7 +231,50 @@ Navbar.Toggle:active {
   padding-left: 5%;
 }
 
-.selectPokemon{
-  border-color: #fff;
-  color: #fff;
+.chartBG {
+  background: rgba(200, 146, 250, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.2px);
+  -webkit-backdrop-filter: blur(9.2px);
+  border: 1px solid rgba(255, 198, 250, 0.64);
+  padding: 20px;
+  height: 100%;
+}
+
+.chartHeading {
+  color: rgb(14, 6, 24);
+}
+
+.chartDesc {
+  color: rgb(14, 6, 24);
+  padding-top: 20px;
+}
+
+.pieChartContainer {
+  display: flex;
+  justify-content: center;
+  max-height: 90vh;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.pokemonCard {
+  background: rgba(200, 146, 250, 0.25) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(9.2px) !important;
+  -webkit-backdrop-filter: blur(9.2px) !important;
+  border: 1px solid rgba(255, 198, 250, 0.64) !important;
+  color: rgb(14, 6, 24) !important;
+  text-transform: capitalize;
+}
+
+.timelineImage{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img{
+    object-fit: contain;
+  }
 }

@@ -52,13 +52,15 @@ const BarChart = ({ poke1LevelData, poke2LevelData }) => {
                 label: "Pokemon 1",
                 data: data1,
                 minBarLength: 5,
-                barWidth: 3,
+
+                backgroundColor:"rgb(101, 41, 175)"
             },
             {
                 label: "Pokemon 2",
                 data: data2,
                 minBarLength: 5,
-                barWidth: 3,
+
+                backgroundColor:"rgb(37, 0, 82)",
             }
         ]
     };
@@ -68,7 +70,13 @@ const BarChart = ({ poke1LevelData, poke2LevelData }) => {
             y: {
                 beginAtZero: true,
                 ticks: {
-                    color: "#fff",
+                    color: "#0e0618",
+                },
+                border:{
+                    color:"rgb(231, 212, 255)",
+                },
+                grid:{
+                    color:"rgba(211, 175, 255, 0.38)"
                 }
             },
             x: {
@@ -76,22 +84,29 @@ const BarChart = ({ poke1LevelData, poke2LevelData }) => {
                     min: 0,
                     max: 25,
                     maxTicksLimit: 34,
-                    color: "#fff",
+                    color: "rgb(14, 6, 24)",
+                },
+                border:{
+                    color:"rgb(231, 212, 255)",
+                },
+                grid:{
+                    color:"rgba(211, 175, 255, 0.38)"
                 }
+
             }
 
         },
         plugins: {
             legend: {
                 labels: {
-                    color: "#fff"
+                    color: "rgb(14, 6, 24)"
                 }
             },
         },
     }
 
     return (
-        <div>
+        <div className="chartBG">
             <h2 className="chartHeading">Experience required for level up</h2>
             <Bar data={data} options={options} />
             <p className="chartDesc">This data represents the total amount of experience points the pokemon will need to level up dot the next level</p>
