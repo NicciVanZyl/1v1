@@ -7,6 +7,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { styled } from '@mui/material/styles';
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
+  //code from MUI for seperated buttons
     gap: '2rem',
     [`& .${toggleButtonGroupClasses.firstButton}, & .${toggleButtonGroupClasses.middleButton}`]:
     {
@@ -19,21 +20,54 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
         borderBottomLeftRadius: (theme.vars || theme).shape.borderRadius,
         borderLeft: `1px solid ${(theme.vars || theme).palette.divider}`,
     },
-    [`& .${toggleButtonGroupClasses.lastButton}.${toggleButtonClasses.disabled}, & .${toggleButtonGroupClasses.middleButton}.${toggleButtonClasses.disabled}`]:
+ //code from MUI for seperated buttons
+
+ //individual button styling 
+    [`& .${toggleButtonGroupClasses.firstButton}, & .${toggleButtonGroupClasses.middleButton},& .${toggleButtonGroupClasses.lastButton}`]:
     {
-        borderLeft: `1px solid ${(theme.vars || theme).palette.action.disabledBackground}`,
+        width: "120px",
+        height: '50px',
+        borderRadius: '50px',
+        backgroundColor: 'rgb(84, 42, 134)',
+        borderColor: 'rgb(144, 94, 206)',
+        borderWidth: '1.5px',
+        color: 'rgb(239, 226, 255)',
+        fontSize: '16px',
+        
+        '&:hover': { //hover styling
+            backgroundColor: 'rgb(144, 94, 206)',
+            borderColor: 'rgb(84, 42, 134)',
+            color: 'rgb(239, 226, 255)',
+        },
+        [`&.${toggleButtonClasses.selected}`]: { //selected styling 
+            backgroundColor: 'rgb(42, 15, 75)',
+            color: 'rgb(239, 226, 255)',
+            borderColor: 'rgb(239, 226, 255)',
+            fontWeight: '600',
+
+            '&:hover': { //hover and selected styling 
+                backgroundColor: 'rgb(144, 94, 206)',
+                borderColor: 'rgb(84, 42, 134)',
+                color: 'rgb(239, 226, 255)',
+            },
+        },
+    },
+    '& p': {
+        margin: 0, //center text in buttons 
     },
 }));
 
 function ToggleButtons({ onButtonChange }) {
-    const [value, setValue] = useState('HP');
+    const [value, setValue] = useState('hp');
 
     useEffect(() => {
+        console.log(value);
+
         if (onButtonChange) onButtonChange(value);
     }, [value]);
 
     const handleChange = (event, newValue) => {
-        setValue(newValue);
+        if (newValue !== null) setValue(newValue);
     };
 
     return (

@@ -12,8 +12,9 @@ import { useState, useEffect } from "react";
 function Home() {
     const [pokemon, setPokemon] = useState([]);
     const [selectPokemon, setSelectedPokemon] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true); //loading so the api can load the data and have placeholder data in the meantime 
 
+    //API call
     const getPokiList = () => {
         fetch("https://pokeapi.co/api/v2/pokemon?offset=0&limit=1350")
             .then(response => response.json())
@@ -24,6 +25,7 @@ function Home() {
             .catch(console.error);
     };
 
+    //API call
     const getPokiDetails = (url) => {
 
         fetch(url)
@@ -56,7 +58,7 @@ function Home() {
 
     useEffect(() => { getPokiList(); }, []);
 
-    useEffect(() => {
+    useEffect(() => { //get random id
         if (pokemon.length === 0) return;
         const idx = Math.floor(Math.random() * pokemon.length);
         getPokiDetails(pokemon[idx].id);
@@ -76,7 +78,7 @@ function Home() {
         var stats;
 
         if (loading) {
-            // Use placeholder if no pokemon loaded
+            //placeholder data if the API kills itself 
             name = "Ditto";
             types = "Normal";
             species = "Ditto";
@@ -91,6 +93,7 @@ function Home() {
             ];
 
         } else {
+            //check if there is data :)
             name = selectPokemon?.name;
             types = selectPokemon?.types;
             species = selectPokemon?.species;
@@ -99,7 +102,7 @@ function Home() {
         }
 
         return (
-
+            //add api/ placeholder data 
             <>
                 <Row className="textContainer containerBackground2 mx-1 mb-4">
                     <Col lg={6} md={12}>

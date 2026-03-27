@@ -7,10 +7,6 @@ import Comparison from "./pages/comparison";
 import Timeline from "./pages/timeline";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import FOG from 'vanta/src/vanta.fog';
-import { useEffect } from 'react';
-import VantaBackground from './VantaBackground'
-
 function App() {
 
   return (

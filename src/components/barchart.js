@@ -70,7 +70,7 @@ const BarChart = ({ poke1LevelData, poke2LevelData }) => {
             y: {
                 beginAtZero: true,
                 ticks: {
-                    color: "#0e0618",
+                    color: "rgb(231, 212, 255)",
                 },
                 border:{
                     color:"rgb(231, 212, 255)",
@@ -84,7 +84,7 @@ const BarChart = ({ poke1LevelData, poke2LevelData }) => {
                     min: 0,
                     max: 25,
                     maxTicksLimit: 34,
-                    color: "rgb(14, 6, 24)",
+                    color: "rgb(231, 212, 255)",
                 },
                 border:{
                     color:"rgb(231, 212, 255)",

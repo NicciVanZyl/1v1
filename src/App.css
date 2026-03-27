@@ -171,7 +171,7 @@ main {
 
 .welcomeText {
   text-align: center;
-  font-size: 18px;
+  font-size: 20px;
 
 }
 
@@ -187,25 +187,33 @@ main {
 }
 
 .statsText {
-  font-size: 18px;
-
-
   h5 {
     font-size: 22px;
     font-weight: 600;
   }
+
+  font-size: 18px;
 }
 
 .pokemonInfo {
   text-transform: capitalize;
 }
 
-.pokemonStatDesc{
-  p{
+.pokemonStatDesc {
+  p {
     margin-top: 5px;
+    font-size: 17px;
+    color: rgb(14, 6, 24);
     margin-bottom: 5px;
+
   }
-  h6{
+
+  h5 {
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  h6 {
     font-size: 18px;
     font-weight: 600;
   }
@@ -270,11 +278,16 @@ Navbar.Toggle:active {
   text-transform: capitalize;
 }
 
-.timelineImage{
+.timelineImage {
   display: flex;
   align-items: center;
   justify-content: center;
-  img{
+
+  img {
     object-fit: contain;
   }
+}
+
+.statExplanation {
+  color: rgb(14, 6, 24);
 }

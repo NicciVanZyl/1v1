@@ -3,7 +3,6 @@ import Autocomplete from '@mui/material/Autocomplete'
 import TextField from "@mui/material/TextField";
 import '../App.css';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import Paper from "@mui/material/Paper";
 
 const theme = createTheme({
   components: {
@@ -20,7 +19,7 @@ const theme = createTheme({
             color: 'rgb(238, 219, 255)',             
           },
         },
-//the dropdown's styling stuff
+        //the dropdown's styling stuff
         paper: {
           borderRadius: '10px',
           borderColor: 'rgb(227, 197, 255)',
@@ -29,7 +28,7 @@ const theme = createTheme({
           backgroundColor: 'rgb(232, 208, 255)',
         },
 
-        //scrolling part 
+        //scrolling part little bar
         listbox: {
 
           '&::-webkit-scrollbar': { width: '6px' },
@@ -94,18 +93,18 @@ const theme = createTheme({
         root: {
           borderRadius: '10px',
           '& fieldset': {
-            borderColor: 'rgb(124, 58, 187)',           // default border
+            borderColor: 'rgb(124, 58, 187)',          
             borderWidth: '1.5px',
           },
           '&:hover fieldset': {
-            borderColor: 'rgb(191, 140, 238)',           // hover border
+            borderColor: 'rgb(191, 140, 238)',          
           },
           '&.Mui-focused fieldset': {
-            borderColor: 'rgb(145, 76, 209)',           // focused border
+            borderColor: 'rgb(145, 76, 209)',           
             borderWidth: '2px',
           },
           '&.Mui-error fieldset': {
-            borderColor: 'rgb(233, 56, 56)',           // error border
+            borderColor: 'rgb(233, 56, 56)',       
           },
           backgroundColor: 'rgba(200, 146, 250, 0.25)',
         },
@@ -137,6 +136,7 @@ function Selector({ onSelectPokemon, levelSpeedData }) {
     const [pokemon, setPokemon] = useState([]);
     const [selectPokemon, setSelectedPokemon] = useState(null);
 
+    //Api calls
     const getPokiList = () => {
         fetch("https://pokeapi.co/api/v2/pokemon?offset=0&limit=1350")
             .then(response => response.json())
@@ -258,23 +258,27 @@ function Selector({ onSelectPokemon, levelSpeedData }) {
 
     }
 
+    //get random id
     const getRandomPokemon = () => {
         if (pokemon.length === 0) return;
         const randomId = Math.floor(Math.random() * pokemon.length);
         getPokiDetails(pokemon[randomId].id);
     }
 
+    //get all of the API data 
     useEffect(() => {
         getPokiList();
         getLevelList();
     }, []);
 
+    //get level data from API
     useEffect(() => {
         if (levelSpeedList[0] == null) return;
         getLevelDetails(levelSpeedList[0].url, levelSpeedList[1].url, levelSpeedList[2].url, levelSpeedList[3].url, levelSpeedList[4].url, levelSpeedList[5].url);
 
     }, [levelSpeedList])
 
+    //get random pokemon to display when page loads 
     useEffect(() => {
         getRandomPokemon();
     }, [pokemon]);

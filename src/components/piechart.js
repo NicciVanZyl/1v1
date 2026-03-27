@@ -83,7 +83,7 @@ const PieChart = ({ poke1, poke2 }) => {
     plugins: {
       legend: {
         labels: {
-          color: "#fff",
+          color: "rgb(13, 1, 29)",
           size: 16,
           generateLabels: function (chart) {
             // Get the default label list

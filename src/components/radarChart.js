@@ -10,8 +10,6 @@ import {
   Ticks,
   Colors,
 } from "chart.js";
-import { color } from "motion";
-
 import { Radar } from "react-chartjs-2";
 
 ChartJS.register(

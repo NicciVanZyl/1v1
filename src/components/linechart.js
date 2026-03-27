@@ -20,157 +20,153 @@ ChartJS.register(
   Tooltip,
 );
 
-const LineChart = () => {
-
-  const IVHp = Math.floor(Math.random() * 31);
-  const IVAtk = Math.floor(Math.random() * 31);
-  const IVDef = Math.floor(Math.random() * 31);
-  const IVSpd = Math.floor(Math.random() * 31);
-  const IVSpecial = Math.floor(Math.random() * 31);
-  const EVHP = Math.floor(Math.random() * 252);
-  const EVAtk = Math.floor(Math.random() * 252);
-  const EVDef = Math.floor(Math.random() * 252);
-  const EVSpd = Math.floor(Math.random() * 252);
-  const EVSpecial = Math.floor(Math.random() * 252);
-
-  const [spatkDataLvl, setSpatkDataLvl] = useState([]);
-  const [hpDataLvl, setHpDataLvl] = useState([]);
-  const [atkDataLvl, setAtkDataLvl] = useState([]);
-  const [defDataLvl, setDefDataLvl] = useState([]);
-  const [spdDataLvl, setSpdDataLvl] = useState([]);
-
-  const [statList, setStatList] = useState([]);
-
-  const getStatList = () => {
-    fetch("https://pokeapi.co/api/v2/pokemon/clefairy")
-      .then(response => response.json())
-      .then(data => {
-        const info = [
-          { name: "hp", value: data.stats[0].base_stat },
-          { name: "atk", value: data.stats[1].base_stat },
-          { name: "def", value: data.stats[2].base_stat },
-          { name: "s_atk", value: data.stats[3].base_stat },
-          { name: "s_def", value: data.stats[4].base_stat },
-          { name: "speed", value: data.stats[5].base_stat }
-        ];
-        setStatList(info);
-      })
-      .catch(console.error);
-  };
+const LineChart = ({ currentStat, currentStatVal }) => {
+  const [stat, setStat] = useState('hp');
+  const [statVal, setStatVal] = useState();
 
   useEffect(() => {
-    getStatList();
-  }, [])
+    if (currentStat == null) return;
+    if (currentStatVal == null) return;
+
+    setStat(currentStat);
+    setStatVal(currentStatVal);
+
+
+
+  }, [currentStat, currentStatVal]);
+
+  const [statListRand, setStatListRand] = useState([]);
+  const [statListMin, setStatListMin] = useState([]);
+  const [statListMax, setStatListMax] = useState([]);
 
   useEffect(() => {
-    if (statList == null) return;
+    if (stat == null || statVal == null) return;
 
-    for (let s = 0; s < statList.length; s++) {
+    const IVRand = (Math.floor(Math.random() * 31));
+    const EVRand = (Math.floor(Math.random() * 252));
+
+
+    if (stat == 'hp') {
+
       var tempArray = [];
-      const statVal = statList[s].value;
-      if (statList[s].name == "hp") {
-        tempArray.push(Math.floor(((((2 * (statVal + IVHp)) + (EVHP / 4)) * 1) / 100) + 1 + 10))
+      tempArray.push(Math.floor(((((2 * (statVal + IVRand)) + (EVRand / 4)) * 1) / 100) + 1 + 10))
 
 
-        for (let i = 10; i < 110; i = i + 10) {
-          tempArray.push(Math.floor(((((2 * (statVal + IVHp)) + (EVHP / 4)) * i) / 100) + i + 10));
-          setHpDataLvl(tempArray);
-        }
-      } else {
-        switch (s) {
-          case 1:
+      for (let i = 10; i < 110; i = i + 10) {
+        tempArray.push(Math.floor(((((2 * (statVal + IVRand)) + (EVRand / 4)) * i) / 100) + i + 10));
 
-            tempArray.push(Math.floor((((2 * (statVal + IVAtk) + (EVAtk / 4)) * 1) / 100) + 5));
-            for (let i = 10; i < 110; i = i + 10) {
-              tempArray.push(Math.floor((((2 * (statVal + IVAtk) + (EVAtk / 4)) * i) / 100) + 5));
-            }
-            setAtkDataLvl(tempArray);
-            break;
-          case 2:
-            tempArray.push(Math.floor(((((2 * (statVal + IVDef)) + (EVDef / 4)) * 1) / 100) + 5));
-            for (let i = 10; i < 110; i = i + 10) {
-              tempArray.push(Math.floor(((((2 * (statVal + IVDef)) + (EVDef / 4)) * i) / 100) + 5));
-            }
-            setDefDataLvl(tempArray);
-            break;
-          case 3:
-            tempArray.push(Math.floor((((2 * (statVal + IVSpecial) + (EVSpecial / 4)) * 1) / 100) + 5));
-            for (let i = 10; i < 110; i = i + 10) {
-              tempArray.push(Math.floor((((2 * (statVal + IVSpecial) + (EVSpecial / 4)) * i) / 100) + 5));
-            }
-            setSpatkDataLvl(tempArray);
-            break;
-          case 5:
-            tempArray.push(Math.floor((((2 * (statVal + IVSpd) + (EVSpd / 4)) * 1) / 100) + 5));
-            for (let i = 10; i < 110; i = i + 10) {
-              tempArray.push(Math.floor((((2 * (statVal + IVSpd) + (EVSpd / 4)) * i) / 100) + 5));
-            }
-            setSpdDataLvl(tempArray);
-            break;
-          default:
-            break;
-        }
       }
+      setStatListRand(tempArray);
+
+      tempArray = [];
+      tempArray.push(Math.floor(((((2 * (statVal + 31)) + (252 / 4)) * 1) / 100) + 1 + 10))
+      for (let i = 10; i < 110; i = i + 10) {
+        tempArray.push(Math.floor(((((2 * (statVal + 31)) + (252 / 4)) * i) / 100) + i + 10));
+
+      }
+      setStatListMax(tempArray);
+
+      tempArray = [];
+      tempArray.push(Math.floor(((((2 * (statVal + 0)) + (0 / 4)) * 1) / 100) + 1 + 10))
+      for (let i = 10; i < 110; i = i + 10) {
+        tempArray.push(Math.floor(((((2 * (statVal + 0)) + (0 / 4)) * i) / 100) + i + 10));
+
+      }
+      setStatListMin(tempArray);
+
+    }
+    else {
+      var tempArray = [];
+      tempArray.push(Math.floor((((2 * (statVal + IVRand) + (EVRand / 4)) * 1) / 100) + 5));
+      for (let i = 10; i < 110; i = i + 10) {
+        tempArray.push(Math.floor((((2 * (statVal + IVRand) + (EVRand / 4)) * i) / 100) + 5));
+
+      }
+      setStatListRand(tempArray);
+
+      tempArray = [];
+      tempArray.push(Math.floor((((2 * (statVal + 31) + (252 / 4)) * 1) / 100) + 5));
+      for (let i = 10; i < 110; i = i + 10) {
+        tempArray.push(Math.floor((((2 * (statVal + 31) + (252 / 4)) * i) / 100) + 5));
+
+      }
+      setStatListMax(tempArray);
+
+      tempArray = [];
+      tempArray.push(Math.floor((((2 * (statVal + 0) + (0 / 4)) * 1) / 100) + 5));
+      for (let i = 10; i < 110; i = i + 10) {
+        tempArray.push(Math.floor((((2 * (statVal + 0) + (0 / 4)) * i) / 100) + 5));
+
+      }
+      setStatListMin(tempArray);
 
     }
 
-  }, [statList])
+
+  }, [stat, statVal])
 
   const data = {
     labels: ["1", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"],
     datasets: [
       {
-        label: "HP",
-        data: hpDataLvl,
-        borderWidth: 2
+        label: "Maximum Value",
+        data: statListMax,
+        borderWidth: 2,
+
+        borderColor: 'rgb(115, 10, 243)',
+        pointBackgroundColor: 'rgb(133, 56, 228)',
+        pointBorderColor: 'rgb(231, 212, 255)',
+        pointHoverBackgroundColor: 'rgb(231, 212, 255)',
+        pointHoverBorderColor: 'rgb(135, 60, 226)',
       },
       {
-        label: "Atk",
-        data: atkDataLvl,
-        borderWidth: 2
+        label: "Possible in game value",
+        data: statListRand,
+        borderWidth: 2,
+
+        borderColor: 'rgb(61, 7, 128)',
+        pointBackgroundColor: 'rgb(105, 16, 212)',
+        pointBorderColor: 'rgb(231, 212, 255)',
+        pointHoverBackgroundColor: 'rgb(231, 212, 255)',
+        pointHoverBorderColor: 'rgb(105, 16, 212)',
       },
       {
-        label: "Def",
-        data: defDataLvl,
-        borderWidth: 2
-      },
-      {
-        label: "Speed",
-        data: spdDataLvl,
-        borderWidth: 2
-      },
-      {
-        label: "Special-atk",
-        data: spatkDataLvl,
-        borderWidth: 2
+        label: "Minimum value",
+        data: statListMin,
+        borderWidth: 2,
+        borderColor: 'rgb(30, 2, 65)',
+        pointBackgroundColor: 'rgb(59, 9, 121)',
+        pointBorderColor: 'rgb(231, 212, 255)',
+        pointHoverBackgroundColor: 'rgb(231, 212, 255)',
+        pointHoverBorderColor: 'rgb(59, 9, 121)',
       },
     ]
   };
 
   const options = {
-    responsive: true, // Chart resizes automatically
+    responsive: true,
     scales: {
       y: {
         beginAtZero: true,
-        border: { color: "#fff" },
+        border: { color: "rgb(231, 212, 255)" },
         grid: {
-          color: 'grey',
+          color: 'rgba(231, 212, 255, 0.49)',
           borderColor: 'grey',
-          tickColor: 'grey'
+          tickColor: 'rgb(231, 212, 255)'
         },
         ticks: {
-          color: "#fff",
+          color: "rgb(231, 212, 255)",
         }
       },
       x: {
-        border: { color: "#fff" },
+        border: { color: "rgb(231, 212, 255)" },
         grid: {
-          color: 'grey',
+          color: 'rgba(231, 212, 255, 0.49)',
           borderColor: 'grey',
-          tickColor: 'grey'
+          tickColor: 'rgb(231, 212, 255)'
         },
         ticks: {
-          color: "#fff",
+          color: "rgb(231, 212, 255)",
         }
       }
 
@@ -178,7 +174,7 @@ const LineChart = () => {
     plugins: {
       legend: {
         labels: {
-          color: "#fff"
+          color: "rgb(239, 226, 255)"
         }
       },
     },

@@ -14,15 +14,13 @@ import Selector from "../components/selectors";
 
 
 function Comparison() {
-
+    //data
     const [poke1, setPoke1] = useState(null);
     const [poke1LevelData, setPoke1LevelData] = useState(null);
     const [poke2, setPoke2] = useState(null);
     const [poke2LevelData, setPoke2LevelData] = useState(null);
-    const [panelGenerated, setPanelGenerated] = useState(null);
 
-
-
+    //load data from API onto panel
     const GeneratePanel = (pokeData) => {
         if (!pokeData) {
             return <p>Please select a pokemon</p>
@@ -30,7 +28,7 @@ function Comparison() {
 
         return (
             <>
-                <Card style={{ width: '25rem'}} className="mx-auto pokemonCard">
+                <Card style={{ width: '25rem' }} className="mx-auto pokemonCard">
                     <Card.Img variant="top" src={pokeData.sprite} />
                     <Card.Body className="pokemonCard">
                         <Card.Title>{pokeData.name}</Card.Title>
@@ -49,7 +47,7 @@ function Comparison() {
 
     return (
         <main >
-            <VantaBackground fluid key={[poke1, poke2]}></VantaBackground>
+            <VantaBackground fluid key={[poke1, poke2]}></VantaBackground> {/*//I think this fixed the background or It does nothing but the background fixed itself so it's fine */}
             <Container fluid className="pageBackground pt-4" id="pagebg" >
 
                 <Row>
@@ -59,10 +57,10 @@ function Comparison() {
 
                                 <Stack gap={5} className="mx-auto">
                                     <Stack direction="horizontal" className="mx-auto" gap={3}>
-                                        <Selector onSelectPokemon={setPoke1} levelSpeedData={setPoke1LevelData} />
+                                        <Selector onSelectPokemon={setPoke1} levelSpeedData={setPoke1LevelData} /> {/*Get data from selector with API calls*/}
 
                                     </Stack>
-                                    {GeneratePanel(poke1)};
+                                    {GeneratePanel(poke1)};{/*Generate panel with data*/}
 
                                 </Stack>
 
@@ -81,12 +79,13 @@ function Comparison() {
                             </Col>
                         </Row>
                         <Stack gap={5}>
-                        <div className="barChartContainer">
-                            <BarChart poke1LevelData={poke1LevelData} poke2LevelData={poke2LevelData}></BarChart>
-                        </div>
-                        <div className="">
-                            <PieChart poke1={poke1} poke2={poke2}></PieChart>
-                        </div>
+                            {/*Send data to the charts*/}
+                            <div className="barChartContainer">
+                                <BarChart poke1LevelData={poke1LevelData} poke2LevelData={poke2LevelData}></BarChart>
+                            </div>
+                            <div className="">
+                                <PieChart poke1={poke1} poke2={poke2}></PieChart>
+                            </div>
                         </Stack>
                     </Col>
                 </Row>

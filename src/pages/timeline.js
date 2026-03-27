@@ -12,7 +12,10 @@ import ToggleButtons from "../components/toggleButtons";
 function Timeline() {
     const [selectPokemon, setSelectedPokemon] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [currentStat, setCurrentStat] = useState('hp');
+    const [currentStatVal, setCurrentStatVal] = useState(48);
 
+    //api call to get clefairy data
     const getPokiDetails = () => {
 
         fetch("https://pokeapi.co/api/v2/pokemon/clefairy")
@@ -27,9 +30,9 @@ function Timeline() {
                         { name: "hp", value: data.stats[0].base_stat },
                         { name: "atk", value: data.stats[1].base_stat },
                         { name: "def", value: data.stats[2].base_stat },
-                        { name: "s_atk", value: data.stats[3].base_stat },
+                        { name: "spatk", value: data.stats[3].base_stat },
                         { name: "s_def", value: data.stats[4].base_stat },
-                        { name: "speed", value: data.stats[5].base_stat }
+                        { name: "spd", value: data.stats[5].base_stat }
                     ],
                     baseExp: data.base_experience,
                     species: data.species.name,
@@ -46,6 +49,18 @@ function Timeline() {
         getPokiDetails();
     }, []);
 
+    //get selected stat value based on API and toggle buttons
+    useEffect(() => {
+        if (selectPokemon == null) return;
+        for (let i = 0; i < selectPokemon.stats.length; i++) {
+            if (currentStat == selectPokemon.stats[i].name) {
+                setCurrentStatVal(selectPokemon.stats[i].value);
+                break;
+            }
+        }
+
+    }, [currentStat]);
+
     const GenerateTimelinePage = () => {
 
         var name;
@@ -55,7 +70,7 @@ function Timeline() {
         var stats;
 
         if (loading) {
-            // Use placeholder if no pokemon loaded
+            // Use placeholder data when API dies
             name = "Ditto";
             types = "Normal";
             species = "Ditto";
@@ -106,7 +121,6 @@ function Timeline() {
                                     <div className="pokemonStatDesc">
                                         <p>Base Spd - {stats[5].value}</p>
                                     </div>
-
                                 </Stack>
                             </Stack>
                         </div>
@@ -130,14 +144,41 @@ function Timeline() {
                 <Row>
                     <Col className="m-5 containerBackground">
                         {GenerateTimelinePage()}
-                        <Col className="containerBackground2">
+
+                        <Col className="containerBackground2 mb-4">
                             <h2 className="chartHeading">Stat Growth</h2>
                             <Row>
-                                <Col className="sm-auto">
-                                    <ToggleButtons></ToggleButtons>
+                                <Col className="d-flex justify-content-center mb-4">
+                                    <ToggleButtons onButtonChange={setCurrentStat}></ToggleButtons>
                                 </Col>
                             </Row>
-                            <LineChart></LineChart>
+                            <LineChart currentStat={currentStat} currentStatVal={currentStatVal}></LineChart>
+                        </Col>
+                        <Col className="containerBackground2 pokemonStatDesc">
+                            <h5>Stat Growth Explanation:</h5>
+                            <div>
+                                <p>
+                                    A pokemon's stat growth is determined by two random values determined in game during play time their level and their base stats using the following formulas.
+                                </p>
+                                <p>
+                                    Other stats = (((((2 * (B + IV)) + (EV / 4)) * Lvl) / 100) + 5)
+                                </p>
+                                <p>
+                                    HP = (((((2 * (B + IV)) + (EV / 4)) * Lvl) / 100) + Lvl + 10)
+                                </p>
+                                <p>
+                                    B: base stat value
+                                </p>
+                                <p>
+                                    IV: pokemon's random individual value
+                                </p>
+                                <p>
+                                    EV: the pokemon's effort value
+                                </p>
+                                <p>
+                                    Lvl: is the pokemon's level
+                                </p>
+                            </div>
                         </Col>
                     </Col>
                 </Row>
