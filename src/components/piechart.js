@@ -56,22 +56,22 @@ const PieChart = ({ poke1, poke2 }) => {
         data: data1,
         backgroundColor: [
 
-          'rgb(179, 112, 255)',
-          'rgb(166, 91, 252)',
-          'rgb(135, 59, 223)',
-          'rgb(112, 46, 187)',
-          'rgb(59, 22, 100)',
+          'rgb(18, 14, 233)',
+          'rgb(10, 12, 138)',
+          'rgb(33, 79, 230)',
+          'rgb(75, 105, 238)',
+          'rgb(9, 5, 73)',
         ],
       },
       {
         label: "Pokemon 2",
         data: data2,
         backgroundColor: [
-          'rgb(133, 94, 240)',
-          'rgb(90, 63, 167)',
-          'rgb(63, 36, 138)',
-          'rgb(49, 25, 117)',
-          'rgb(31, 10, 88)',
+           'rgb(233, 14, 50)',
+          'rgb(138, 10, 38)',
+          'rgb(238, 75, 97)',
+          'rgb(253, 151, 173)',
+          'rgb(73, 5, 11)',
         ],
       }
     ]
@@ -83,7 +83,7 @@ const PieChart = ({ poke1, poke2 }) => {
     plugins: {
       legend: {
         labels: {
-          color: "rgb(13, 1, 29)",
+          color: "#fff",
           size: 16,
           generateLabels: function (chart) {
             // Get the default label list

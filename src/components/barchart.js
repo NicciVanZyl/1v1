@@ -53,14 +53,14 @@ const BarChart = ({ poke1LevelData, poke2LevelData }) => {
                 data: data1,
                 minBarLength: 5,
 
-                backgroundColor:"rgb(101, 41, 175)"
+                backgroundColor:"rgb(41, 88, 175)"
             },
             {
                 label: "Pokemon 2",
                 data: data2,
                 minBarLength: 5,
 
-                backgroundColor:"rgb(37, 0, 82)",
+                backgroundColor:"rgb(201, 50, 57)",
             }
         ]
     };
@@ -70,10 +70,10 @@ const BarChart = ({ poke1LevelData, poke2LevelData }) => {
             y: {
                 beginAtZero: true,
                 ticks: {
-                    color: "rgb(231, 212, 255)",
+                    color: "#fff",
                 },
                 border:{
-                    color:"rgb(231, 212, 255)",
+                    color:"#fff",
                 },
                 grid:{
                     color:"rgba(211, 175, 255, 0.38)"
@@ -84,10 +84,10 @@ const BarChart = ({ poke1LevelData, poke2LevelData }) => {
                     min: 0,
                     max: 25,
                     maxTicksLimit: 34,
-                    color: "rgb(231, 212, 255)",
+                    color: "#fff",
                 },
                 border:{
-                    color:"rgb(231, 212, 255)",
+                    color:"#fff",
                 },
                 grid:{
                     color:"rgba(211, 175, 255, 0.38)"
@@ -99,7 +99,7 @@ const BarChart = ({ poke1LevelData, poke2LevelData }) => {
         plugins: {
             legend: {
                 labels: {
-                    color: "rgb(14, 6, 24)"
+                    color: "#fff"
                 }
             },
         },

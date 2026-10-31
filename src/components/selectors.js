@@ -13,19 +13,19 @@ const theme = createTheme({
         //label colours
         root: {
           '& .MuiInputLabel-root': {
-            color: 'rgb(226, 194, 255)',                 
+            color: "#fff",                 
           },
           '& .MuiInputLabel-root.Mui-focused': {
-            color: 'rgb(238, 219, 255)',             
+            color: '"#fff"',             
           },
         },
         //the dropdown's styling stuff
         paper: {
           borderRadius: '10px',
-          borderColor: 'rgb(227, 197, 255)',
+          borderColor: '#fe3434a3',
           borderWidth:'2px',
           boxShadow: '0 8px 24px rgba(0, 0, 0, 0.28)',
-          backgroundColor: 'rgb(232, 208, 255)',
+          backgroundColor: '#00000af1',
         },
 
         //scrolling part little bar
@@ -33,7 +33,7 @@ const theme = createTheme({
 
           '&::-webkit-scrollbar': { width: '6px' },
           '&::-webkit-scrollbar-thumb': {
-            background: 'rgb(231, 212, 255)', //scrollbar colour
+            background: '#243effe5', //scrollbar colour
             borderRadius: '3px',
           },
         },
@@ -42,46 +42,46 @@ const theme = createTheme({
         option: {
           borderRadius: '6px',
           fontSize: '16px',
-          color: 'rgb(15, 0, 29)',
+          color: '#fff',
           '&:hover': {
-            backgroundColor: 'rgb(15, 0, 29)',
+            backgroundColor: 'rgb(90, 122, 170)',
           },
           
           '&.Mui-focused': {
-            backgroundColor: 'rgba(200, 146, 250, 0.25)', //colour of focused row
-            color: 'rgb(15, 0, 29)',//colour of focused text
+            backgroundColor: 'rgb(90, 122, 170)', //colour of focused row
+            color: '#fff',//colour of focused text
             fontWeight: 600,
           },
           
           '&[aria-selected="true"]': {
-            backgroundColor: 'rgba(200, 146, 250, 0.25)',
-            color: 'rgb(15, 0, 29)',
+            backgroundColor: 'rgb(45, 79, 131)',
+            color: '#fff',
             fontWeight: 700,
           },
           '&[aria-selected="true"]:hover': {
-            backgroundColor: 'rgba(170, 80, 255, 0.25)',
+            backgroundColor: 'rgb(27, 52, 88)',
           },
           
           '&[aria-selected="true"].Mui-focused': {
-            backgroundColor: 'rgba(176, 93, 255, 0.25)',
+            backgroundColor: 'rgb(27, 52, 88)',
           },
         },
 
         //x icon
         clearIndicator: {
-          color: 'rgb(231, 212, 255)',
-          '&:hover': { backgroundColor: 'rgba(151, 104, 194, 0.25)' },
+          color: '#fff',
+          '&:hover': { backgroundColor: 'rgb(85, 140, 218)' },
         },
 
         //dropdown icon
         popupIndicator: {
-          color: 'rgb(231, 212, 255)',
-          '&:hover': { backgroundColor: 'rgba(200, 146, 250, 0.25)' },
+          color: '#fff',
+          '&:hover': { backgroundColor: 'rgb(85, 140, 218)' },
         },
         //input 
         input: {
           fontSize: '16px',
-          color: 'rgb(231, 212, 255)',
+          color: '#fff',
         },
 
       },
@@ -93,20 +93,20 @@ const theme = createTheme({
         root: {
           borderRadius: '10px',
           '& fieldset': {
-            borderColor: 'rgb(124, 58, 187)',          
+            borderColor: '#fe34a3a3',          
             borderWidth: '1.5px',
           },
           '&:hover fieldset': {
-            borderColor: 'rgb(191, 140, 238)',          
+            borderColor: '#b32171a3',          
           },
           '&.Mui-focused fieldset': {
-            borderColor: 'rgb(145, 76, 209)',           
+            borderColor: '#881a56a3',           
             borderWidth: '2px',
           },
           '&.Mui-error fieldset': {
             borderColor: 'rgb(233, 56, 56)',       
           },
-          backgroundColor: 'rgba(200, 146, 250, 0.25)',
+          backgroundColor: 'rgba(71, 68, 255, 0.53)',
         },
       },
     },
@@ -115,8 +115,8 @@ const theme = createTheme({
     MuiInputLabel: {
       styleOverrides: {
         root: {
-          color: 'rgb(231, 212, 255)',
-          '&.Mui-focused': { color: 'rgb(231, 212, 255)' },
+          color: '#fff',
+          '&.Mui-focused': { color: 'rgb(124, 176, 250)' },
           '&.Mui-error': { color: 'rgb(255, 125, 125)' },
         },
       },

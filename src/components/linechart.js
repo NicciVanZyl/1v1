@@ -20,7 +20,7 @@ ChartJS.register(
   Tooltip,
 );
 
-const LineChart = ({ currentStat, currentStatVal }) => {
+const LineChart = ({ currentStat, currentStatVal,type }) => {
   const [stat, setStat] = useState('hp');
   const [statVal, setStatVal] = useState();
 
@@ -113,32 +113,32 @@ const LineChart = ({ currentStat, currentStatVal }) => {
         data: statListMax,
         borderWidth: 2,
 
-        borderColor: 'rgb(115, 10, 243)',
-        pointBackgroundColor: 'rgb(133, 56, 228)',
-        pointBorderColor: 'rgb(231, 212, 255)',
-        pointHoverBackgroundColor: 'rgb(231, 212, 255)',
-        pointHoverBorderColor: 'rgb(135, 60, 226)',
+        borderColor: 'rgb(155, 255, 124)',
+        pointBackgroundColor: 'rgb(74, 219, 61)',
+        pointBorderColor: 'rgb(222, 255, 212)',
+        pointHoverBackgroundColor: 'rgb(222, 255, 212)',
+        pointHoverBorderColor: 'rgb(102, 214, 91)',
       },
       {
         label: "Possible in game value",
         data: statListRand,
         borderWidth: 2,
 
-        borderColor: 'rgb(61, 7, 128)',
-        pointBackgroundColor: 'rgb(105, 16, 212)',
-        pointBorderColor: 'rgb(231, 212, 255)',
-        pointHoverBackgroundColor: 'rgb(231, 212, 255)',
-        pointHoverBorderColor: 'rgb(105, 16, 212)',
+        borderColor: 'rgb(130, 149, 255)',
+        pointBackgroundColor: 'rgb(16, 134, 212)',
+        pointBorderColor: 'rgb(148, 164, 255)',
+        pointHoverBackgroundColor: 'rgb(104, 101, 255)',
+        pointHoverBorderColor: 'rgb(16, 45, 212)',
       },
       {
         label: "Minimum value",
         data: statListMin,
         borderWidth: 2,
-        borderColor: 'rgb(30, 2, 65)',
-        pointBackgroundColor: 'rgb(59, 9, 121)',
-        pointBorderColor: 'rgb(231, 212, 255)',
-        pointHoverBackgroundColor: 'rgb(231, 212, 255)',
-        pointHoverBorderColor: 'rgb(59, 9, 121)',
+        borderColor: 'rgb(255, 94, 121)',
+        pointBackgroundColor: 'rgb(121, 9, 9)',
+        pointBorderColor: 'rgb(255, 212, 218)',
+        pointHoverBackgroundColor: 'rgb(255, 212, 214)',
+        pointHoverBorderColor: 'rgb(121, 9, 9)',
       },
     ]
   };
@@ -148,25 +148,25 @@ const LineChart = ({ currentStat, currentStatVal }) => {
     scales: {
       y: {
         beginAtZero: true,
-        border: { color: "rgb(231, 212, 255)" },
+        border: { color: "#fff" },
         grid: {
           color: 'rgba(231, 212, 255, 0.49)',
-          borderColor: 'grey',
-          tickColor: 'rgb(231, 212, 255)'
+          borderColor: '#fff',
+          tickColor: '#fff'
         },
         ticks: {
-          color: "rgb(231, 212, 255)",
+          color: "#fff",
         }
       },
       x: {
-        border: { color: "rgb(231, 212, 255)" },
+        border: { color: "#fff" },
         grid: {
           color: 'rgba(231, 212, 255, 0.49)',
-          borderColor: 'grey',
-          tickColor: 'rgb(231, 212, 255)'
+          borderColor: '#fff',
+          tickColor: '#fff'
         },
         ticks: {
-          color: "rgb(231, 212, 255)",
+          color: "#fff",
         }
       }
 
@@ -174,7 +174,7 @@ const LineChart = ({ currentStat, currentStatVal }) => {
     plugins: {
       legend: {
         labels: {
-          color: "rgb(239, 226, 255)"
+          color: "#fff"
         }
       },
     },
