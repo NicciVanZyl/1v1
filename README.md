@@ -1,4 +1,21 @@
-# 1v1
+## <p align="center" style="text-decoration: none !important;padding:0;margin:0;"> <br>DV 200 Semester 1</p>
+<p align="center"><img src="https://github.com/NicciVanZyl/1v1/blob/main/public/Git_assets/1V1.png"/></p>
+
+### <p align="center" style="text-decoration: none !important;padding:0;margin:0;">Eunice van Zyl 251023</p>
+
+## Table of Contents
+
+* [About 1V1](#About-1v1)
+  * [Built With](#built-with)
+* [Getting Started](#getting-started)
+  * [How to install](#how-to-install)
+  * [File Structure](#file-structure)
+* [Features and Functionality](#Features)
+* [Final Outcome](#final-outcome)
+    * [Mockups](#mockups)
+    * [Demo Video](#demo-video)
+
+---
 
 ## About 1v1
 
@@ -28,6 +45,47 @@ Run the app:
 ```
 npm start
 ```
+
+### File Structure:
+```text
+1V1:
+└── niccivanzyl-1v1/
+    ├── README.md
+    ├── package.json
+    ├── public/
+    │   ├── index.html
+    │   ├── manifest.json
+    │   └── robots.txt
+    └── src/
+        ├── App.css
+        ├── App.js
+        ├── App.test.js
+        ├── index.css
+        ├── index.js
+        ├── reportWebVitals.js
+        ├── setupTests.js
+        ├── typePalettes.js
+        ├── VantaBackground.js
+        ├── components/
+        │   ├── barchart.js
+        │   ├── footer.js
+        │   ├── linechart.js
+        │   ├── navbar.js
+        │   ├── piechart.js
+        │   ├── radarChart.js
+        │   ├── radioButtons.js
+        │   ├── selectors.js
+        │   ├── toggleButtons.js
+        │   ├── typeTheme.js
+        │   └── useTypeTheme.js
+        └── pages/
+            ├── comparison.js
+            ├── home.js
+            └── timeline.js
+
+```
+---
+
 ## Features
 
 | Home Page | Comparison Page | Timeline Page |
@@ -36,3 +94,23 @@ npm start
 | Stat descriptions | Compare Pokemon base stats | Pokemon Stat growth |
 | | Compare pokemon levelup experience | Pokemon maximum, minimum and expected stats |
 | | Compare Pokemon total experience given when killed |  |
+
+## Final Outcome:
+
+### Mockups:
+
+## Desktop
+<p align="center"><img src="https://github.com/NicciVanZyl/1v1/blob/main/public/Git_assets/S2ZNMdRuB.png" width="600" /></p>
+
+## Mobile
+<p align="center"><img src="https://github.com/NicciVanZyl/1v1/blob/main/public/Git_assets/oTFhBODSm.png" width="600" /></p>
+
+## Tablet
+<p align="center"><img src="https://github.com/NicciVanZyl/1v1/blob/main/public/Git_assets/tU%24lNMrEV.png" width="600" /></p>
+
+---
+
+### Demo Video:
+[Google Drive Link](https://drive.google.com/file/d/1jOM2qY_w2ls1gWQDtNwd1isvTd9utHzp/view?usp=sharing)
+
+---
